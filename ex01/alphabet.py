@@ -21,7 +21,6 @@ def shutudai(alphabet):
     print("デバッグ用欠損文字：", abs_chars)
     return abs_chars
 
-
 def kaito(seikai):
     num = int(input("欠損文字はいくつあるでしょうか？："))
     if num != num_of_abs_chars:
@@ -39,7 +38,6 @@ def kaito(seikai):
             print("欠損文字も含めて完全正解です！！！")
             return True
     return False
-
 
 if __name__ == "__main__":
     st = time.time()
