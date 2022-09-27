@@ -1,5 +1,5 @@
 import random
-import datetime
+import time
 
 num_of_alphabet = 26  # 全アルファベット数
 num_of_all_chars = 10 # 対象文字数
@@ -45,6 +45,7 @@ def kaito(seikai):
 
 
 if __name__ == "__main__":
+    st = time.time()
     alphabet = [chr(i+65) for i in range(num_of_alphabet)]
     #print(alphabet)
     for _ in range(num_of_trials):
@@ -54,3 +55,5 @@ if __name__ == "__main__":
             break
         else:
             print("-"*20)
+    ed = time.time()
+    print(f"所要時間:{(ed-st):.2f}秒")
