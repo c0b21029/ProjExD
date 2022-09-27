@@ -3,7 +3,7 @@ import time
 
 num_of_alphabet = 26  
 num_of_all_chars = 10 
-num_of_abs_chars = 2  
+num_of_abs_chars = random.randint(1,10)  
 num_of_trials = 2 
 
 def shutudai(alphabet):
