@@ -25,7 +25,7 @@ entry.grid(row=0, column=0, columnspan=4)
 
 r, c = 1, 0 # r: 行を表す変数／c：列を表す変数
 numbers = list(range(9, -1, -1)) # 数字だけのリスト
-operators = ["+"] # 演算子だけのリスト
+operators = ["+", "-", "/", "*", "**", "%"] # 演算子だけのリスト
 for i, num in enumerate(numbers+operators, 1):
     btn = tk.Button(root, text=f"{num}", font=("", 30), width=4, height=2)
     btn.bind("<1>", click_number)
@@ -36,25 +36,25 @@ for i, num in enumerate(numbers+operators, 1):
         c = 0
 
 
-button1 = tk.Button(root, text="AC",font= ("", 30), width=4, height=2)
-button2 = tk.Button(root, text="%", font= ("", 30), width=4, height=2)
-button3 = tk.Button(root, text="√",font= ("", 30), width=4, height=2)
-button4 = tk.Button(root, text="/", font=("", 30), width=4, height=2)
-button5 = tk.Button(root, text="*", font=("", 30), width=4, height=2)
-button6 = tk.Button(root, text="-", font=("", 30), width=4, height=2)
+# button1 = tk.Button(root, text="AC",font= ("", 30), width=4, height=2)
+# button2 = tk.Button(root, text="%", font= ("", 30), width=4, height=2)
+# button3 = tk.Button(root, text="√",font= ("", 30), width=4, height=2)
+# button4 = tk.Button(root, text="/", font=("", 30), width=4, height=2)
+# button5 = tk.Button(root, text="*", font=("", 30), width=4, height=2)
+# button6 = tk.Button(root, text="-", font=("", 30), width=4, height=2)
 
-button2.bind("<1>", click_number)
-# button3.bind("<1>", click_number)
-button4.bind("<1>", click_number)
-button5.bind("<1>", click_number)
-button6.bind("<1>", click_number)
+# button2.bind("<1>", click_number)
+# # button3.bind("<1>", click_number)
+# button4.bind("<1>", click_number)
+# button5.bind("<1>", click_number)
+# button6.bind("<1>", click_number)
 
-button1.grid(row=1, column=0)
-button2.grid(row=1, column=1)
-button3.grid(row=1, column=2)
-button4.grid(row=1, column=3)
-button5.grid(row=2, column=3)
-button6.grid(row=3, column=3)
+# button1.grid(row=1, column=0)
+# button2.grid(row=1, column=1)
+# button3.grid(row=1, column=2)
+# button4.grid(row=1, column=3)
+# button5.grid(row=2, column=3)
+# button6.grid(row=3, column=3)
 
 btn = tk.Button(root, text=f"=", font=("", 30), width=4, height=2)
 btn.bind("<1>", click_equal)
