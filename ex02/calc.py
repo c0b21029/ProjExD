@@ -11,7 +11,8 @@ entry.grid(row=0, column=0, columnspan=3)
 def click_number(event):
     btn = event.widget
     num = int(btn["text"])
-    tkm.showinfo(f"{num}", f"[{num}]ボタンが押されました")
+    # tkm.showinfo(f"{num}", f"[{num}]ボタンが押されました")
+    entry.insert(tk.END, num)
 
 r, c = 1, 0
 for i, num in enumerate(range(9,-1, -1), 1):
