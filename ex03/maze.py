@@ -10,10 +10,11 @@ def key_up(event):
     global key
     key = ""
 
-
-
-def set_goal():
-    pass
+def count_up():
+    global tmr
+    tmr = tmr + 1
+    label1["text"] = tmr
+    root.after(1000, count_up)
 
 def main_proc():
     global mx, my
@@ -64,7 +65,15 @@ def main_proc():
 
 if __name__ == "__main__":
     root = tk.Tk()
+    root1 = tk.Tk()
     root.title("迷えるこうかとん")
+    root1.title("タイマー")
+    label1 = tk.Label(root1, font=("", 80))
+    label1.pack()
+    root1.after(1000, count_up)
+    tmr = 0
+    jid = None
+    # root.after(1000, count_up)
 
     canv = tk.Canvas(root, width=1500, height=900, bg="black")
     canv.pack()
@@ -87,5 +96,7 @@ if __name__ == "__main__":
 
     #練習7
     main_proc()
+
+    root.after(1000, count_up)
 
     root = tk.mainloop()
