@@ -10,15 +10,17 @@ def key_up(event):
     key = ""
 
 def main_proc():
+    global mx, my
     global cx, cy
     if key == "w":
-        cy -= 20
+        my -= 1
     if key == "s":
-        cy += 20
+        my += 1
     if key == "a":
-        cx -= 20
+        mx -= 1
     if key == "d":
-        cx += 20
+        mx += 1
+    cx, cy = mx*100+50, my*100+50
     canv.coords("tori", cx, cy)
     root.after(100, main_proc)
 
@@ -30,8 +32,14 @@ if __name__ == "__main__":
     canv = tk.Canvas(root, width=1500, height=900, bg="black")
     canv.pack()
 
+    #練習9,10
+    maze_list = mm.make_maze(15, 9)
+    # print(maze_list)
+    mm.show_maze(canv, maze_list)
+
     tori = tk.PhotoImage(file="fig/3.png")
-    cx, cy = 300, 400
+    mx, my = 1, 1
+    cx, cy = mx*100+50, my*100+50
     canv.create_image(cx, cy, image=tori, tag="tori")
 
     key = "" #現在押されているキーを表す変数
@@ -43,8 +51,7 @@ if __name__ == "__main__":
     #練習7
     main_proc()
 
-    #練習9
-    maze_list = mm.make_maze(15, 9)
-    print(maze_list)
+    
+
 
     root = tk.mainloop()
