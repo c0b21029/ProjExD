@@ -11,10 +11,10 @@ def key_up(event):
     key = ""
 
 def count_up():
-    global tmr
+    global tmr, jid
     tmr = tmr + 1
     label1["text"] = tmr
-    root.after(1000, count_up)
+    jid = root1.after(1000, count_up)
 
 def main_proc():
     global mx, my
@@ -73,7 +73,6 @@ if __name__ == "__main__":
     root1.after(1000, count_up)
     tmr = 0
     jid = None
-    # root.after(1000, count_up)
 
     canv = tk.Canvas(root, width=1500, height=900, bg="black")
     canv.pack()
