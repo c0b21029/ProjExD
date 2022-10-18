@@ -18,16 +18,37 @@ def set_goal():
 def main_proc():
     global mx, my
     global cx, cy
+    global tori
     if key == "w":
+        tori = tk.PhotoImage(file=f"fig/4.png")
+        canv.create_image(cx, cy, image=tori, tag="tori")
         my -= 1
     if key == "s":
+        tori = tk.PhotoImage(file=f"fig/3.png")
+        canv.create_image(cx, cy, image=tori, tag="tori")
         my += 1
     if key == "a":
+        tori = tk.PhotoImage(file=f"fig/1.png")
+        canv.create_image(cx, cy, image=tori, tag="tori")
         mx -= 1
     if key == "d":
+        tori = tk.PhotoImage(file=f"fig/6.png")
+        canv.create_image(cx, cy, image=tori, tag="tori")
         mx += 1
     if maze_list[my][mx] == 0:
         cx, cy = mx*100+50, my*100+50
+        if key == "w":
+            tori = tk.PhotoImage(file=f"fig/4.png")
+            canv.create_image(cx, cy, image=tori, tag="tori")
+        if key == "s":
+            tori = tk.PhotoImage(file=f"fig/3.png")
+            canv.create_image(cx, cy, image=tori, tag="tori")
+        if key == "a":
+            tori = tk.PhotoImage(file=f"fig/1.png")
+            canv.create_image(cx, cy, image=tori, tag="tori")
+        if key == "d":
+            tori = tk.PhotoImage(file=f"fig/6.png")
+            canv.create_image(cx, cy, image=tori, tag="tori")
     else:
         if key == "w":
             my += 1
