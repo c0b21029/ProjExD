@@ -1,5 +1,6 @@
 import tkinter as tk
 import maze_maker as mm
+import random
 
 def key_down(event):
     global key
@@ -8,6 +9,11 @@ def key_down(event):
 def key_up(event):
     global key
     key = ""
+
+
+
+def set_goal():
+    pass
 
 def main_proc():
     global mx, my
@@ -46,8 +52,8 @@ if __name__ == "__main__":
     maze_list = mm.make_maze(15, 9)
     # print(maze_list)
     mm.show_maze(canv, maze_list)
-
-    tori = tk.PhotoImage(file="fig/3.png")
+    
+    tori = tk.PhotoImage(file=f"fig/3.png")
     mx, my = 1, 1
     cx, cy = mx*100+50, my*100+50
     canv.create_image(cx, cy, image=tori, tag="tori")
@@ -60,8 +66,5 @@ if __name__ == "__main__":
 
     #練習7
     main_proc()
-
-    
-
 
     root = tk.mainloop()
