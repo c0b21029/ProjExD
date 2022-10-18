@@ -12,4 +12,6 @@ if __name__ == "__main__":
     cx, cy = 300, 400
     canv.create_image(cx, cy, image=tori, tag="tori")
 
+    key = "" #現在押されているキーを表す変数
+
     root = tk.mainloop()
