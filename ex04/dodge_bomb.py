@@ -94,10 +94,8 @@ def main():
                 tori_rct.centery += 1  
             if key_states[pg.K_DOWN]: 
                 tori_rct.centery -= 1
-        
 
         scrn_sfc.blit(tori_sfc, tori_rct) #練習3
-
 
         yoko, tate = check_bound(bomb_rct, scrn_rct)
         vx *= yoko
@@ -121,8 +119,6 @@ def main():
         if yoko == -1 or tate == -1:
             pg.draw.circle(bomb_sfc3, (n, 0, 0), (10, 10), 10)
         bomb_rct3.move_ip(vx3, vy3)
-
-
 
         scrn_sfc.blit(bomb_sfc, bomb_rct)#練習5
         scrn_sfc.blit(bomb_sfc2, bomb_rct2)
