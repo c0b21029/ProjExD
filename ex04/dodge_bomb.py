@@ -1,6 +1,7 @@
 import pygame as pg
 import sys
 from random import randint
+n = 1
 
 def check_bound(obj_rct, scr_rct):
     yoko, tate = +1, +1
@@ -9,6 +10,24 @@ def check_bound(obj_rct, scr_rct):
     if obj_rct.top < scr_rct.top or scr_rct.bottom < obj_rct.bottom: 
         tate = -1
     return yoko, tate
+
+def check_bound_im(obj_rct, scr_rct):
+    global n
+    yoko, tate = +1, +1
+    if obj_rct.left < scr_rct.left or scr_rct.right < obj_rct.right: 
+        yoko = -1
+        if n == 1:
+            n = 0
+        else:
+            n = 1
+    if obj_rct.top < scr_rct.top or scr_rct.bottom < obj_rct.bottom: 
+        tate = -1
+        if n == 1:
+            n = 0
+        else:
+            n = 1
+    return yoko, tate
+        
 
 def main():
     #練習1　　
@@ -40,26 +59,21 @@ def main():
     bomb_rct2.centery = randint(0,scrn_rct.height)
 
     bomb_sfc3 = pg.Surface((20, 20)) # 空のsurface
-    pg.draw.circle(bomb_sfc3, (255, 0, 0), (10, 10), 10) #円を描く
+    pg.draw.circle(bomb_sfc3, (1, 0, 0), (10, 10), 10) #円を描く
     bomb_sfc3.set_colorkey((0, 0, 0))
     bomb_rct3  =bomb_sfc3.get_rect()
     bomb_rct3.centerx = randint(0, scrn_rct.width)
     bomb_rct3.centery = randint(0,scrn_rct.height)
-
-
 
     #練習6
     vx, vy = +1, +1
     vx2, vy2 = +1, +1
     vx3, vy3 = +1, +1
 
-
-
     clock = pg.time.Clock() #練習1
     while True:
         scrn_sfc.blit(bg_sfc, bg_rct) #練習2
          
-        
         for event in pg.event.get(): #練習2
             if event.type == pg.QUIT:
                 return
@@ -95,10 +109,14 @@ def main():
         vy2 *= tate
         bomb_rct2.move_ip(vx2, vy2)
 
-        yoko, tate = check_bound(bomb_rct3, scrn_rct)
+        yoko, tate = check_bound_im(bomb_rct3, scrn_rct)
         vx3 *= yoko
         vy3 *= tate
+        if yoko == -1 or tate == -1:
+            pg.draw.circle(bomb_sfc3, (n, 0, 0), (10, 10), 10)
         bomb_rct3.move_ip(vx3, vy3)
+
+
 
         scrn_sfc.blit(bomb_sfc, bomb_rct)#練習5
         scrn_sfc.blit(bomb_sfc2, bomb_rct2)
