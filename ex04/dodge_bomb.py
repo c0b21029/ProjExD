@@ -24,6 +24,13 @@ def main():
             if event.type == pg.QUIT:
                 return
 
+        key_states = pg.key.get_pressed()
+        if key_states[pg.K_UP]: tori_rct.centery -= 1  #こうかとんの縦座標-1
+        if key_states[pg.K_DOWN]: tori_rct.centery += 1  #こうかとんの縦座標+1
+        if key_states[pg.K_LEFT]: tori_rct.centerx -= 1  #こうかとんの横座標-1
+        if key_states[pg.K_RIGHT]: tori_rct.centerx += 1  #こうかとんの横座標+1
+        
+
         scrn_sfc.blit(tori_sfc, tori_rct) #練習3
 
         pg.display.update() #練習2
