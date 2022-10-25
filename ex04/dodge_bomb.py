@@ -103,11 +103,17 @@ def main():
         vx *= yoko
         vy *= tate
         bomb_rct.move_ip(vx, vy)
+        if yoko == -1 or tate == -1:
+            vx *= 1.1
+            vy *= 1.1
 
         yoko, tate = check_bound(bomb_rct2, scrn_rct)
         vx2 *= yoko
         vy2 *= tate
         bomb_rct2.move_ip(vx2, vy2)
+        if yoko == -1 or tate == -1:
+            vx2 *= 1.1
+            vy2 *= 1.1
 
         yoko, tate = check_bound_im(bomb_rct3, scrn_rct)
         vx3 *= yoko
