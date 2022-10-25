@@ -2,16 +2,23 @@ import pygame as pg
 import sys
 
 def main():
+    #練習1　　
     pg.display.set_caption("逃げろ！こうかとん") 
     scrn_sfc = pg.display.set_mode((1600, 900)) 
 
     bg_sfc = pg.image.load("fig/pg_bg.jpg") 
     bg_rct = bg_sfc.get_rect()
-    scrn_sfc.blit(bg_sfc, bg_rct)
 
-    pg.display.update()
-    clock = pg.time.Clock() 
-    clock.tick(0.2) 
+    clock = pg.time.Clock() #練習1
+    while True:
+        scrn_sfc.blit(bg_sfc, bg_rct) #練習2
+        pg.display.update() #練習2 
+        
+        for event in pg.event.get(): #練習2
+            if event.type == pg.QUIT:
+                return
+
+        clock.tick(1000) 
 
 
 if __name__ == "__main__":
