@@ -32,8 +32,26 @@ def main():
     bomb_rct.centerx = randint(0, scrn_rct.width)
     bomb_rct.centery = randint(0,scrn_rct.height)
 
+    bomb_sfc2 = pg.Surface((20, 20)) # 空のsurface
+    pg.draw.circle(bomb_sfc2, (255, 0, 0), (10, 10), 10) #円を描く
+    bomb_sfc2.set_colorkey((0, 0, 0))
+    bomb_rct2  =bomb_sfc2.get_rect()
+    bomb_rct2.centerx = randint(0, scrn_rct.width)
+    bomb_rct2.centery = randint(0,scrn_rct.height)
+
+    bomb_sfc3 = pg.Surface((20, 20)) # 空のsurface
+    pg.draw.circle(bomb_sfc3, (255, 0, 0), (10, 10), 10) #円を描く
+    bomb_sfc3.set_colorkey((0, 0, 0))
+    bomb_rct3  =bomb_sfc3.get_rect()
+    bomb_rct3.centerx = randint(0, scrn_rct.width)
+    bomb_rct3.centery = randint(0,scrn_rct.height)
+
+
+
     #練習6
     vx, vy = +1, +1
+    vx2, vy2 = +1, +1
+    vx3, vy3 = +1, +1
 
 
 
@@ -72,9 +90,27 @@ def main():
         vy *= tate
         bomb_rct.move_ip(vx, vy)
 
+        yoko, tate = check_bound(bomb_rct2, scrn_rct)
+        vx2 *= yoko
+        vy2 *= tate
+        bomb_rct2.move_ip(vx2, vy2)
+
+        yoko, tate = check_bound(bomb_rct3, scrn_rct)
+        vx3 *= yoko
+        vy3 *= tate
+        bomb_rct3.move_ip(vx3, vy3)
+
         scrn_sfc.blit(bomb_sfc, bomb_rct)#練習5
+        scrn_sfc.blit(bomb_sfc2, bomb_rct2)
+        scrn_sfc.blit(bomb_sfc3, bomb_rct3)
 
         if tori_rct.colliderect(bomb_rct):
+            return 
+
+        if tori_rct.colliderect(bomb_rct2):
+            return 
+        
+        if tori_rct.colliderect(bomb_rct3):
             return 
 
         pg.display.update() #練習2
