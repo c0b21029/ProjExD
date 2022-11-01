@@ -144,6 +144,7 @@ def check_bound(obj_rct, scr_rct):
         tate = -1
     return yoko, tate
 
+
 def check_bound_inv(obj_rct, scr_rct):
     global COLOR_INV
     yoko, tate = +1, +1
