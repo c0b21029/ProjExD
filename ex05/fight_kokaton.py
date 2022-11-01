@@ -117,6 +117,25 @@ class Inv_Bomb: #透明な爆弾
         self.blit(scr) # =scr.sfc.blit(self.sfc, self.rct)
 
 
+class Music:
+    def __init__(self,BGM):
+        pg.mixer.init(frequency = 44100)    # 初期設定
+        pg.mixer.music.load(BGM)     # 音楽ファイルの読み込み
+        pg.mixer.music.play(1)              # 再生の終了
+        for event in pg.event.get(): 
+            if event.type == pg.QUIT:
+                pg.mixer.music.stop()
+                return
+
+    def se(se):
+        pg.mixer.init(frequency = 44100)    # 初期設定
+        pg.mixer.music.load(se)     # 音楽ファイルの読み込み
+        pg.mixer.music.play(1)              # 音楽の再生回数(1回)
+        sleep(1)
+        pg.mixer.music.stop()               # 再生の終了
+        return 0
+
+
 def check_bound(obj_rct, scr_rct):
     yoko, tate = +1, +1
     if obj_rct.left < scr_rct.left or scr_rct.right < obj_rct.right: 
@@ -161,6 +180,7 @@ def main():
     sleep(1)
 
     clock = pg.time.Clock() #練習1
+    Music("data/house_lo.mp3")
     while True:
         scr.blit() # 練習2         
         for event in pg.event.get(): #練習2
@@ -185,6 +205,7 @@ def main():
         
         if kkt.rct.colliderect(bkd3.rct):
             return 
+        
 
         pg.display.update() #練習2
         clock.tick(1000) 
