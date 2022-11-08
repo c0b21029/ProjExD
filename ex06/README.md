@@ -14,3 +14,6 @@
 - 10回の内,8回正解した場合、「こうかとんに勝利」と表示される、7回以下の場合「こうかとんに負けちゃった…」と表示される
 ### ToDo（実装しようと思ったけど時間がなかった）
 - [ ] 正解するとこうかとんが爆発するエフェクトを入れたかった。
+### 参考サイト
+- https://zenn.dev/takahashi_m/articles/a272cea4c3c4d7bb29e5
+- https://imagingsolution.net/program/python/tkinter/widget_layout_grid/
